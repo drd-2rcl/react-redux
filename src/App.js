@@ -1,39 +1,19 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 
 import Sidebar from './components/Sidebar';
 import Video from './components/Video';
 
-class App extends Component {
-  state = {
-    activeLesson: {},
-    modules: [
-      { id: 1, 
-        title: 'Rect na veia', 
-        lessons: 
-        [ 
-          { id: 1, title: 'Primeiro Teste'},
-          { id: 2, title: 'Segundo Teste'},
-        ],
-      },
-      {
-        id: 2, 
-        title: 'Redux na veia',
-        lessons: 
-        [
-          { id: 3, title: 'Terceiro Teste'},
-          { id: 4, title: 'Quarto Teste'},
-        ]
-      }
-    ]
-  }
+import store from './store';
 
+class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App">
-          <Video activeLesson={} />
-          <Sidebar modules={ this.state.modules } />
-        </header>
+        <Provider store={store} >
+          <Video />
+          <Sidebar />
+        </Provider>
       </div>
     );
   }
