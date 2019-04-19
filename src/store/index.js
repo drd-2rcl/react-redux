@@ -1,27 +1,11 @@
 import { createStore } from 'redux';
 
-function reducer() {
-  return [
-    { id: 1, 
-      title: 'Rect na veia', 
-      lessons: 
-      [ 
-        { id: 1, title: 'Primeiro Teste'},
-        { id: 2, title: 'Segundo Teste'},
-      ],
-    },
-    {
-      id: 2, 
-      title: 'Redux na veia',
-      lessons: 
-      [
-        { id: 3, title: 'Terceiro Teste'},
-        { id: 4, title: 'Quarto Teste'},
-      ]
-    }
-  ];
-}
+// a função reducer armazena o estado e pode manipular 
 
-const store = createStore(reducer);
+// as actions são ações que repassamos ao redux indicando que precisamos manipular o estado de alguma forma, indicando ações do usuário ou que aconteram na própria aplicação.
+
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer);
 
 export default store;
